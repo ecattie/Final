@@ -1,93 +1,59 @@
 <!DOCTYPE html>
+
 <html>
-    <head>
-        <title>Shopping List</title>
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-                <script src="apigee.js"></script>
-                <script src="scripts.js"></script>
-         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="screen">
-            
-                <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-                <!--[if lt IE 9]>
+<head>
+    <title>Shopping List</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="css/demo_table.css" rel="stylesheet" type="text/css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="js/stupidtable.js"></script>
+    <script src="apigee.js"></script>
+    <script src="scripts.js"></script>
+    <link href="css/bootstrap.min.css" media="screen" rel="stylesheet" type=
+    "text/css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
                   <script src="../../assets/js/html5shiv.js"></script>
                   <script src="../../assets/js/respond.min.js"></script>
                 <![endif]-->
-            <!--<script src="js/jquery-1.10.2.js"></script>-->
-                    
-            
-<!--
-<script type="text/javascript">
-		
-			// Initializing the SDK
-			var client = new Apigee.Client({
-				orgName:'cattiee', // Your Apigee.com username for App Services
-				appName:'sandbox' // Your Apigee App Services app name
-			});
+    <!--<script src="js/jquery-1.10.2.js"></script>-->
+</head>
 
-			// Reading data
-			var items = new Apigee.Collection({ "client":client, "type":"items" });
-			items.fetch(
-				function(err, data) { // Success
-					if (err) {
-						alert("read failed");
-					} else {
-						while(items.hasNextEntity()) {
-							var items = items.getNextEntity();
-							alert(items.get("itemName")); // Output the title of the book
-						}
-					}
-				});
+<body>
+    <h1>Shopping List</h1>
 
-			// Uncomment the next 4 lines if you want to write data
-			
-			// book = { "title": "the old man and the sea" };
-			// books.addEntity(book, function (error, response) {
-			// 	if (error) { alert("write failed");
-			// 	} else { alert("write succeeded"); } });
-		</script>
--->
+    <div class="container">
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
 
+            <div class="panel-heading">
+                Just submit an item, and watch the magic. If your item can not
+                be found, you can create a new item and aisle number and it
+                will be there for you next time.
+            </div><!-- Table -->
 
-        
-    </head>
-    <body>
-        
-        <h1>Shopping List</h1>
-            <div class="container">
-                                
-                     <div class="panel panel-default">
-                          
-                          <!-- Default panel contents -->
-                          <div class="panel-heading">Just submit an item, and watch the magic.  
-                          If your item can not be found, you can create a new item and aisle number 
-                          and it will be there for you next time.</div>
-                            
-                            <!-- Table -->
-                        <form class = "form" id="submitItemTable">
-                                        <table class = "table">
-                                            <tr>
-                                                <th id = "name">Name</th>
-                                                <th id= "aisle">Aisle</th>
-                                            </tr>
-                                            
-                                        </table>
-                                    
-                                    <input type="text" id = "newItemName" placeholder = "Name">
-                                <input type="text" id = "newItemAisle" placeholder = "Aisle"> 
-                            <button type="submit">SUBMIT</button>
-                            
-                        </form>
-                    </div>
-            
-            
-                
-            </div>
+            <form class="form" id="submitItemTable" name="submitItemTable">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th data-sort="string" id="name">Name</th>
 
+                            <th data-sort="int" id="aisle">Aisle</th>
+                        </tr>
+                    </thead>
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+                    <tbody>
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table><input id="newItemName" placeholder="Name" type="text">
+                <button type="submit">SUBMIT</button>
+            </form>
+        </div>
+    </div><!--jQuery (necessary for Bootstrap's JavaScript plugins) 
     <script src="//code.jquery.com/jquery.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
+     Include all compiled plugins (below), or include individual files as needed-->
     <script src="js/bootstrap.min.js"></script>
-    </body>
+</body>
 </html>
